@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main(void)
+{//粗糙的
+	double num1 = 0.0;
+	double num2 = 0.0;
+	double sum1 = 0.0;
+	double sum2 = 0.0;
+	for (int i = 1; i <= 100; i++)
+	{
+		if (i % 2 != 0)
+		{
+			num1 = 1 /(double)i;
+			sum1 += num1;
+			
+		}
+	}
+	for (int j = 1; j <= 100; j++)
+	{
+		if (j % 2 == 0)
+		{
+			num2 = 1 / (double)j;
+			sum2 += num2;
+		
+		}
+	}
+	double sum = sum1 - sum2;
+	printf("sum的和为: %lf- %lf = %lf ",sum1,sum2,sum);
+/*
+	精辟的
+	double sum = 0.0;
+	int flag = 1;
+	for(int i = 1;i<=100;i++)
+	{
+		sum += flag *1.0/i;
+		flag = -flag;
+	}
+	printf("值为%lf",sum);
+	
+*/
+	
+	
+}
