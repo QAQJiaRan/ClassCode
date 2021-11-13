@@ -1,0 +1,26 @@
+#include <stdio.h>
+//对于memset()中value的初级理解
+int main(void)
+{
+//	void * memset ( void * ptr, int value, size_t num );
+	char arr[] = "hello world";
+/*
+	
+	memset(arr,'a',5);
+	printf("%s\n",arr);	//输出 aaaaa world
+*/
+
+/*
+	memset(arr,97,5);
+	printf("%s\n",arr);	//输出 aaaaa world
+	//value存放的是一个ASCLL码值
+*/
+
+/*
+	memset(arr,'97',5);
+	printf("%s\n",arr);	//输出 77777 world
+	
+*/
+		
+	return 0;	
+}
