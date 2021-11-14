@@ -1,0 +1,38 @@
+/*
+	对于函数参数传值的理解：
+	1.传值调用：函数的形参和实参分别占用不同的内存块，对形参的修改不会影响实参
+	2.传地址调用 ：是把函数外部创建变量的内存地址传递给函数参数的一种调用函数的方式，
+		       这种传参的方式可以让函数和函数外的变量建立起真正的联系，也就是函
+		       数内部可以直接操作函数外部的变量
+*/
+#include <stdio.h>
+#include <math.h>
+
+int is_prime(int x)
+{
+	if (x == 1)
+		return 0;
+	for (int i = 2; i <= sqrt(x); i++)
+	{
+		if (x % i == 0 )
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+int main(void)
+{
+	printf("请输入：\n");
+	int a = 0;
+	scanf("%d", &a);
+	if (is_prime(a) == 1)
+	{
+		printf("是素数\n");
+	}
+	else
+	{
+		printf("不是素数\n");
+	}
+
+}
