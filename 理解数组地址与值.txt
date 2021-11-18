@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main(void)
+{
+
+	int arr[] = {1,2,3,4,5,6,7,8,9,10};
+	printf("%d\n", sizeof(arr)); //数组的长度
+	printf("%p\n",arr);//数组首元素的地址
+	printf("%p\n", &arr);//整个数组的地址
+	printf("%p\n", *arr);//数组首元素的值
+	printf("%p\n", &arr[0]);//数组首元素的地址
+	printf("%d\n", arr[0]);//数组首元素的值
+	printf("%d\n", arr[0]+1);//数组第二个元素(下标为1)的值
+	printf("%p\n", &arr[0]+9 );//数组第10个元素(下标为9)的地址
+	printf("%p\n", arr + 9);//数组第10个元素(下标为9)的地址
+	printf("%d\n", *arr + 9);//数组第10个元素的值
+	printf("%p\n", arr + 1);//数组第二个元素的地址
+	printf("%p\n", &arr + 1);//整个数组的地址的 下一个地址(数组末尾之后)
+	printf("%p\n", arr + 9 );//数组的第10个元素(下标为9)的地址
+	return 0;
+}
