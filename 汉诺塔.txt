@@ -1,0 +1,28 @@
+//圆盘从下面开始按大小顺序重新摆放在另一根柱子上，在小圆盘上不能放大圆盘，在三根柱子之间一次只能移动一个圆盘
+#include <stdio.h>
+void f(char a, char b)
+{
+	printf("从%c柱上往%c柱上移动一个圆盘\n",a,b);
+}
+void g(int i, char a, char b, char c)
+{
+	if (i == 2)
+	{
+		f(a, b);
+		f(a, c);
+		f(b, c);
+	}
+	else if(i > 2)
+	{
+		g(i - 1, a, c, b);
+		f(a, c);
+		g(i - 1, b, a, c);
+	}
+
+}
+
+int main(void)
+{
+	g(4,'a','b','c');
+	return 0; 
+}
