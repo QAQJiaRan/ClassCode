@@ -1,0 +1,43 @@
+//有n个整数，使前面各数顺序向后移动m个位置，最后m个数变成最前面m个数
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#define N 10
+void show(int a[])
+{
+	for (int i = 0; i < N; ++i)
+		printf("%6d",a[i]);
+	putchar('\n');
+	
+}
+void move(int *a, int k, int index)
+{
+	for (int i = 0; i < k; ++i)
+	{
+		int d = a[index];
+		a[index] = a[index - 1];
+		a[index - 1] = d;
+		index--;
+
+	}
+}
+int main(void)
+{
+	int a[N];
+	for (int i = 0; i < N; ++i)
+		a[i] = i;
+	show(a);
+
+	int m;
+	do
+	{
+		printf("请输入m的值:");
+		scanf("%d",&m);
+		if (m >= 0 && m <= N)
+			break;
+		printf("输入有误,请重新输入,\n	");
+	} while (1);
+	for (int i = N-m; i < N; ++i)
+		move(a,N-m,i);
+	show(a);
+	return 0;
+}
