@@ -1,0 +1,109 @@
+#include <stdio.h>
+#define LEN 10
+int length(int *a)	//参数还可以写成 int a[LEN] 或者 int a[] 都代表 a 是一个 int * 类型的变量
+{
+	int j = 0;
+	while (j < LEN)
+	{
+		if (a[j] == 0)
+			break;
+		else
+			++j;
+
+	}
+	return j;
+}
+void show(int a[])
+{
+	int len = length(a);
+	for (int i = 0; i < len; ++i)
+		printf("%5d",a[i]);
+	putchar('\n');
+}
+//删除
+bool del(int *a, int index)
+{
+	int len = length(a);
+	if (len == 0 || index > len - 1 || index < 0)
+		return false;
+	else
+	{
+		for (int i = index+1; i < len; i++)
+			a[i - 1] = a[i];
+		a[len - 1] = 0; 
+		return true;
+	}
+}
+//插入
+bool insert(int *a, int index, int value)
+{
+	int len = length(a);
+	if (len == LEN || index < 0 || index > len)
+		return false;
+	else
+	{
+		for (int i = len-1; i >= index; --i)
+			a[i+1] = a[i];
+		a[index] = value;
+		return true;
+	}
+}
+
+//倒置
+void invert(int *a)
+{
+	int len = length(a);
+	int from = 0;
+	int end = len - 1;
+	while (from < end)//如果from小于end则执行语句块
+	{
+		int d = a[from];
+		a[from] = a[end];
+		a[end] = d;
+		from++;
+		end--;
+	}
+}
+//查找
+int	find1(int *a, int value)
+{
+	int len = length(a);
+	for (int i = 0; i < len; ++i)
+	{
+		if (a[i] == value)
+			return i;
+	}
+	return -1;
+}
+
+//二分查找 也称为折半查找
+int	find2(int *a, int value)
+{
+	int len = length(a);
+	int from = 0;
+	int end = len - 1;
+	while (from<=end)
+	{
+		if (value == a[(from + end) / 2])
+			return (from + end) / 2;
+		else if (value > a[(from + end) / 2])
+			from = (from + end) / 2 + 1;
+		else
+			end = (from + end) / 2 -1;
+	}
+	return -1;
+}
+
+int main(void)
+{
+	int a[LEN] = { 3,6,9,12,15 };
+	/*if(del(a, 5))
+		show(a);
+	else
+		printf("删除失败\n");*/
+	//insert(a,2,8);
+	//invert(a);
+	printf("%d\n",find2(a,20));
+	show(a);
+	return 0;
+}
