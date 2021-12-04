@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int Print(int n,int n1)
+{
+	int count = 0;
+	int tmp = 0;
+	tmp = n ^ n1;
+	while (tmp)
+	{
+		tmp = tmp & (tmp - 1);
+		count++;
+	}
+		
+
+	return count++;
+}
+int main(void)
+{
+
+	int a,b = 0;
+	scanf("%d",&a);
+	scanf("%d", &b);
+	int count = Print(a,b);
+	printf("%d",count);
+	return 0;
+} 
