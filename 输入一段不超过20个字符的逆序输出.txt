@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+
+/*
+void reverse_string(char arr[],int sz)
+{
+	int left = 0;
+	int right = sz - 2;
+	
+	while (left < right)
+	{
+		char tmp = '0';
+		tmp = arr[right];
+		arr[right] = arr[left];
+		arr[left] = tmp;
+		right--;
+		left++;
+	}
+	printf("%s",arr);
+	
+	
+}*/
+void reverse_string1(char arr[])
+{
+	char tmp = arr[0];
+	int len = strlen(arr);
+	arr[0] = arr[len - 1];
+	arr[len - 1] = '\0';
+	if (strlen(arr + 1) >= 2)
+		reverse_string1(arr + 1);
+	arr[len - 1] = tmp;
+}
+int main(void)
+{
+	char arr[21]= " ";
+	scanf("%s",arr);
+	//int sz = sizeof(arr) / sizeof(arr[0]);
+	//reverse_string(arr,sz);
+	reverse_string1(arr);
+	printf("%s", arr);
+	return 0;
+} 
