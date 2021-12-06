@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+
+double reverse_string1(int n,int k)
+{
+	if (k < 0)
+	{
+		return (1.0/(reverse_string1(n, -k)));
+	}
+	else if (k >= 1)
+	{
+		return n * reverse_string1(n, k - 1);
+		
+	}
+	else
+		return 1;
+}
+int main(void)
+{
+	int  n = 0;
+	int  k = 0;
+	printf("请输入底数:\n");
+	scanf("%d",&n);
+	printf("请输入次方数:\n");
+	scanf("%d", &k);
+	double  count = reverse_string1(n,k);
+	printf("%lf", count);
+
+	return 0;
+} 
