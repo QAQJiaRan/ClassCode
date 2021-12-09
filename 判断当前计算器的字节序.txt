@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(void)
+{
+	int a = 1;
+	char *p = (char *)&a;
+	if (*p == 1)
+	{
+		printf("小端存储模式\n");
+	}
+	else
+		printf("大端存储模式\n");
+	return 0;
+}
